@@ -9,6 +9,6 @@ public interface IClasseService {
     List<Classe> getClassesList();
     Classe updateClasse(long id,Classe classe);
     String deleteClasse(long id);
-    Classe createOrRead(Classe classe);
+
 
 }

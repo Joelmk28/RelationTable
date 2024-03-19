@@ -37,12 +37,5 @@ public class ClasseService implements IClasseService{
         iClasseRepository.deleteById(id);
         return "cette classe a été supprimée avec succes";
     }
-    @Override
-    public  Classe createOrRead(Classe classe){
-        Classe classExist = iClasseRepository.findClasseByName(classe.getName());
-        if(classExist == null){
-            classExist = classe;
-        }
-        return classExist;
-    }
+
 }

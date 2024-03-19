@@ -13,10 +13,11 @@ import java.util.List;
 @AllArgsConstructor
 public class StudentService implements IStudentService {
     private final IStudentRepository iStudentRepository;
-    private final ClasseService classeService;
+    private final IClasseRepository iClasseRepository;
     @Override
     public Student createStudent(Student student) {
-        Classe classeExist = classeService.createOrRead(student.getClasse());
+        Classe classeExist =iClasseRepository.findClasseByName(student.getClasse().getName());
+        if(classeExist == null){classeExist = student.getClasse();}
         student.setClasse(classeExist);
         return iStudentRepository.save(student);
     }
